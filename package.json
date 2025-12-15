@@ -26,5 +26,6 @@
 	},
 	"dependencies": {
 		"ably": "^2.15.0"
+		
 	}
 }

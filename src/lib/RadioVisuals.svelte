@@ -282,9 +282,22 @@
   .intro-fade { transition: opacity 300ms ease, transform 300ms ease; }
   .visuals-container { width:100%; max-width:900px; margin:12px auto; text-align: center; }
   canvas { display:block; margin: 0 auto; }
+  .radio-player {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: monospace;
+    padding: 2rem;
+  }
+  .player-content {
+    max-width: 900px;
+    width: 100%;
+  }
 </style>
 
-<div class="min-h-screen flex items-center justify-center text-white font-mono bg-transition" style="background-color: {bgColor};">
+<div class="radio-player bg-transition" style="background-color: {bgColor};">
   {#if !started}
     <button on:click={start} class="intro-fade focus:outline-none">
       <div class="flex items-center justify-center p-8">
@@ -294,7 +307,7 @@
   {/if}
 
   {#if started}
-    <div class="absolute inset-0 flex flex-col items-center justify-center">
+    <div class="player-content">
       <div class="text-white text-center">
         <h1 class="text-2xl font-bold">Dagyaw Radio</h1>
         <p class="mt-2 opacity-80">{status}</p>

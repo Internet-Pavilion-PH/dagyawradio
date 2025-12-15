@@ -1,0 +1,25 @@
+{
+	"id": "DR",
+	"name": "Dagyaw Radio",
+	"short_name": "Dagyaw Radio",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"orientation": "any",
+	"theme_color": "green",
+	"background_color": "#ffffff",
+	"dir": "ltr",
+	"lang": "en",
+	"icons": [
+		{
+			"src": "/icon.svg",
+			"sizes": "192x192",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/icon.svg",
+			"sizes": "512x512",
+			"type": "image/svg+xml"
+		}
+	]
+}
