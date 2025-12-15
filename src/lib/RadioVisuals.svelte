@@ -282,18 +282,20 @@
   .intro-fade { transition: opacity 300ms ease, transform 300ms ease; }
   .visuals-container { width:100%; max-width:900px; margin:12px auto; text-align: center; }
   canvas { display:block; margin: 0 auto; }
+
+  /* reverted to full-screen layout */
   .radio-player {
-    min-height: 100vh;
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-family: monospace;
-    padding: 2rem;
   }
+
   .player-content {
-    max-width: 900px;
-    width: 100%;
+    text-align: center;
   }
 </style>
 
