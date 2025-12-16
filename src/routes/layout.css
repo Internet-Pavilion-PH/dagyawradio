@@ -1,2 +1,27 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+/* Ensure the app fills the viewport and remove default scrollbars */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* prevent the browser window from showing scrollbars for this fullscreen app */
+body {
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* make sure SvelteKit root content can expand to full height if needed */
+main, #svelte {
+	min-height: 100vh;
+}
+
+/* Avoid white gaps during resize by giving the page a matching background color.
+	 Keep this in sync with the component's initial bgColor (#1e3a8a). */
+html, body, main, #svelte {
+	background-color: #1e3a8a;
+}

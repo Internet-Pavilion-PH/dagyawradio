@@ -285,13 +285,15 @@
 
   /* reverted to full-screen layout */
   .radio-player {
-    position: absolute;
+    position: fixed;
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-family: monospace;
+    overflow: hidden;
+    min-height: 100vh;
   }
 
   .player-content {
