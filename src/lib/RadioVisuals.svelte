@@ -10,7 +10,7 @@
   let player: HTMLAudioElement | undefined;
   let audioCtx: AudioContext | undefined;
   let pendingUrl = '';
-  let bgColor = '#1e3a8a'; // initial dark blue
+  let bgColor = '#000000'; // initial black
 
   // Visualizer state
   let canvas: HTMLCanvasElement | null = null;
@@ -87,7 +87,7 @@
   function start() {
     console.log('start() called');
     started = true;
-    bgColor = '#2563eb'; // blue-600
+    bgColor = '#10b981'; // emerald-500
     console.log('Background set to blue');
     try {
       const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
@@ -125,14 +125,14 @@
       if ((player as any)._handlersAttached) return;
       (player as any)._handlersAttached = true;
       player.addEventListener('playing', () => {
-        bgColor = '#10b981';
+        bgColor = '#000000';
         console.log('playback started, bg changed to green');
         log('playback started');
         visualsVisible = true;
         if (!rafId) draw();
       });
       player.addEventListener('ended', () => {
-        bgColor = '#2563eb';
+        bgColor = '#10b981';
         status = 'Waiting for signal';
         log('playback ended');
         visualsVisible = false;
@@ -247,7 +247,7 @@
     const h = canvas.height / (window.devicePixelRatio || 1);
     canvasCtx.clearRect(0, 0, w, h);
     canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = '#1e3a8a';
+    canvasCtx.strokeStyle = '#10b981';
     canvasCtx.beginPath();
     const step = Math.max(1, Math.floor(dataArray.length / w));
     for (let i = 0, x = 0; i < dataArray.length; i += step, x++) {
@@ -303,8 +303,8 @@
 
 <div class="radio-player bg-transition" style="background-color: {bgColor};">
   {#if !started}
-    <button on:click={start} class="intro-fade focus:outline-none">
-      <div class="flex items-center justify-center p-8">
+    <button on:click={start} class="intro-fade focus:outline-none bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg px-6 py-4">
+      <div class="flex items-center justify-center">
         <span class="text-3xl sm:text-4xl font-semibold select-none">Tap to start</span>
       </div>
     </button>

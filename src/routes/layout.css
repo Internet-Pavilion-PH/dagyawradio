@@ -23,5 +23,5 @@ main, #svelte {
 /* Avoid white gaps during resize by giving the page a matching background color.
 	 Keep this in sync with the component's initial bgColor (#1e3a8a). */
 html, body, main, #svelte {
-	background-color: #1e3a8a;
+	background-color: #000000;
 }
