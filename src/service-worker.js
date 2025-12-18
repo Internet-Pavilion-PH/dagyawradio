@@ -38,6 +38,11 @@ self.addEventListener('fetch', (event) => {
 		const url = new URL(event.request.url);
 		const cache = await caches.open(CACHE);
 
+		// Don't intercept or cache cross-origin requests — let the browser handle them.
+		if (url.origin !== self.location.origin) {
+			return fetch(event.request);
+		}
+
 		// `build`/`files` can always be served from the cache
 		if (ASSETS.includes(url.pathname)) {
 			const response = await cache.match(url.pathname);
@@ -58,8 +63,8 @@ self.addEventListener('fetch', (event) => {
 				throw new Error('invalid response from fetch');
 			}
 
-			// Only cache HTTP/HTTPS requests, skip chrome-extension and other schemes
-			if (response.status === 200 && url.protocol.startsWith('http')) {
+			// Only cache same-origin HTTP/HTTPS requests, skip chrome-extension and other schemes
+			if (response.status === 200 && url.protocol.startsWith('http') && url.origin === self.location.origin) {
 				cache.put(event.request, response.clone());
 			}
 
